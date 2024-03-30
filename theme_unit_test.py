@@ -1,30 +1,30 @@
-from utilities.GUT_2 import GutColor, GUT
+from utilities.GUT_2 import Color, GUT
 
 if __name__ == "__main__":
     Gut = GUT()
-    GutColor = GutColor()
+    Color = Color()
 
-    print(f"{GutColor.hex_to_ansi('#fc9803')}WOOOOOW{GutColor.rst()}")
-    print(f"{GutColor.hex_to_ansi('#03d7fc')}WOOOOOW{GutColor.rst()}")
-    print(f"{GutColor.hex_to_ansi('#002a6e')}WOOOOOW{GutColor.rst()}")
-    print(f"{GutColor.hex_to_ansi('#94007b')}WOOOOOW{GutColor.rst()}")
-    print(f"{GutColor.hex_to_ansi('#5eff5e')}WOOOOOW{GutColor.rst()}")
-    print(f"{GutColor.hex_to_ansi('#9c5eff')}WOOOOOW{GutColor.rst()}")
+    print(f"{Color.hex('#fc9803')}WOOOOOW{Color.rst()}")
+    print(f"{Color.hex('#03d7fc')}WOOOOOW{Color.rst()}")
+    print(f"{Color.hex('#002a6e')}WOOOOOW{Color.rst()}")
+    print(f"{Color.hex('#94007b')}WOOOOOW{Color.rst()}")
+    print(f"{Color.hex('#5eff5e')}WOOOOOW{Color.rst()}")
+    print(f"{Color.hex('#9c5eff')}WOOOOOW{Color.rst()}")
     print("\n")
 
-    rst = GutColor.rst()
-    bold = GutColor.bold()
-    ital = GutColor.italicize()
+    rst = Color.rst()
+    bold = Color.bold()
+    ital = Color.italicize()
 
     string = f"""
-{GutColor.hex_to_ansi('#fc9803')}WARTHOG{rst} | Level {GutColor.hex_to_ansi('#878787')}7{rst}
-{GutColor.hex_to_ansi("#ff0000", bold=True)}HP  {rst}: ({GutColor.hex_to_ansi("#ffffff", bold=True)}17{rst}/24) [{GutColor.hex_to_ansi("#ff0000", bold=True)}//////////////{rst}....]
-{GutColor.hex_to_ansi("#3d8bff", bold=True)}MANA{rst}: ({GutColor.hex_to_ansi("#ffffff", bold=True)}15{rst}/30) [{GutColor.hex_to_ansi("#3d8bff", bold=True)}/////////{rst}.........]
+{Color.hex('#fc9803')}WARTHOG{rst} | Level {Color.hex('#878787')}7{rst}
+{Color.hex("#ff0000", bold=True)}HP  {rst}: ({Color.hex("#ffffff", bold=True)}17{rst}/24) [{Color.hex("#ff0000", bold=True)}//////////////{rst}....]
+{Color.hex("#3d8bff", bold=True)}MANA{rst}: ({Color.hex("#ffffff", bold=True)}15{rst}/30) [{Color.hex("#3d8bff", bold=True)}/////////{rst}.........]
 
 """
 
     options = {'1': 'Option 1', '2': 'Option 2', '3': 'Option 3'}
 
-    Gut.menu_select(f"{GutColor.hex_to_ansi('#ff0000', bold=True)}BATTLE{rst}", options=options, text=string)
+    Gut.menu_select(f"{Color.hex('#ff0000', bold=True)}BATTLE{rst}", options=options, text=string)
 
     click = input()

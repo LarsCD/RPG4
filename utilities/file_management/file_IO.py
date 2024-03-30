@@ -15,7 +15,7 @@ class FileIO:
         self.Encryption = EncryptionManager()
 
     @staticmethod
-    def check_if_file_exists(self, full_path):
+    def check_if_file_exists(full_path):
         check_bool = pathlib.Path(full_path).is_file()
         return check_bool
 
@@ -35,7 +35,7 @@ class FileIO:
         if path is None:
             path = DEFAULT_FILE_SETTINGS['file_path']
 
-        full_path = None
+        # full_path = None
 
         file_path = os.path.join(path, output_file)
         full_path = f"{self.cwd}{file_path}{extension}"
@@ -51,10 +51,12 @@ class FileIO:
             self.log(logging.DEBUG, f'writing data to \'{output_file}\'')
             f.write(data)
 
-    def read_file(self, input_file, path=DEFAULT_FILE_SETTINGS['file_path'], extension=DEFAULT_FILE_SETTINGS['file_extension']):
+    def read_file(self, input_file, path=DEFAULT_FILE_SETTINGS['file_path'],
+                  extension=DEFAULT_FILE_SETTINGS['file_extension']):
         """
         Read data from file in default folder 'files'
 
+        :param extension:
         :param input_file:
         :param path:
         :return:
@@ -64,8 +66,8 @@ class FileIO:
         if path is None:
             path = DEFAULT_FILE_SETTINGS['file_path']
 
-        full_path = None
-        data = None
+        # full_path = None
+        # data = None
 
         file_path = os.path.join(path, input_file)
         full_path = f"{self.cwd}{file_path}"

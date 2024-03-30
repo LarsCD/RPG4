@@ -15,3 +15,10 @@ AUTH_SETTINGS = {
     'auth_key_dir': r'/src/engine/auth/keys',
     'file_extension': '.KEY'
 }
+GAME_DEFAULTS = {
+    'game_name': "RPG 4",
+    'game_version': 'v0.0.1'
+}
+GAME_SETTINGS = {
+
+}

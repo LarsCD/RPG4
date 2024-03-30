@@ -19,7 +19,7 @@ class GUT:
 
     def draw_line(self, char=None):
         if char is None:
-            print( * self.settings['default_line_size'])
+            print('' * self.settings['default_line_size'])
         else:
             print(str(char) * self.settings['default_line_size'])
 
@@ -57,7 +57,8 @@ class GUT:
         for _ in range(height):
             self.draw_line()
 
-    def align_text(self, text, width, alignment='left'):
+    @staticmethod
+    def align_text(text, width, alignment='left'):
         if alignment == 'l':
             return text.ljust(width)
         elif alignment == 'r':
@@ -67,10 +68,14 @@ class GUT:
         else:
             return f"{text}"
 
-    def menu_select(self, title, options, text=None, bar_text="", error_text: list = []):
-        self.clear_screen()
-        self.draw_line(char="")
-        self.draw_title(title)
+    def menu_select(self, options, title=None, text=None, bar_text="", error_text: list = [],
+                    clear_screen=False, draw_line=False):
+        if title is not None:
+            self.clear_screen()
+        if clear_screen is True:
+            self.draw_line(char="")
+        if draw_line is True:
+            self.draw_title(title)
         if text:
             self.draw_text(text)
         for key, value in options.items():
@@ -85,6 +90,7 @@ class GUT:
         return user_input
 
     def display_text(self, title, text, options=None, bar_text="", error_text: list = []):
+
         self.clear_screen()
         self.draw_line()
         self.draw_title(title)
@@ -109,7 +115,7 @@ class GUT:
         return user_input
 
 
-class GutColor:
+class Color:
     def __init__(self):
         pass
 
@@ -126,7 +132,7 @@ class GutColor:
         return '\x1b[3m'
 
     @staticmethod
-    def hex_to_ansi(hex_color, bold=False, italicize=False):
+    def hex(hex_color, bold=False, italicize=False):
         # Remove '#' if present
         hex_color = hex_color.lstrip('#')
 
@@ -161,7 +167,7 @@ if __name__ == "__main__":
     gut.draw_text('This is a sample text.')
     # gut.draw_box(20, 5)
     options = {'a': 'Option A', 'b': 'Option B', 'c': 'Option C'}
-    user_input = gut.menu_select('Menu', options, text='Please select an option:',
+    user_input = gut.menu_select(options, title='Menu', text='Please select an option:',
                                  error_text=["File \'homework.COS\' could not be saved correctly"])
     gut.display_text('TITLE', '''Wow, look at me!
 Is this working
@@ -169,4 +175,4 @@ Is this working
 I think so!''', options=options)
     gut.click_error("Command could not be completed successfully")
     options2 = {'1': 'START COREOS', '2': 'SETTINGS', '3': 'EXIT'}
-    gut.menu_select('COREOS GAMMA STARTUP', options2, bar_text="[For advanced config type: \'/config\']")
+    gut.menu_select(options2, title='COREOS GAMMA STARTUP', bar_text="[For advanced config type: \'/config\']")
