@@ -17,7 +17,7 @@ AUTH_SETTINGS = {
 }
 GAME_DEFAULTS = {
     'game_name': "RPG 4",
-    'game_version': 'v0.0.1'
+    'game_version': 'v0.0.2'
 }
 GAME_SETTINGS = {
 

@@ -13,7 +13,7 @@ class Main_Menu:
         self.game_version = GAME_DEFAULTS['game_version']
         self.menu_options = {'1': 'Start Game',
                              '2': 'Load Game',
-                             '3': f'{self.Clr.hex("#0088ff", bold=True)}Exit Game{self.Clr.rst()}'}
+                             '3': f'{self.Clr.hex("#ff0000", bold=True)}Exit Game{self.Clr.rst()}'}
 
     def print_menu_art(self):
         print(self.MENU_ART)
@@ -33,14 +33,20 @@ By: {self.Clr.bold()}LarsCD{rst}
 """
         return string
 
+    def print_full_menu_UI(self):
+        self.Gut.clear_screen()
+        self.Gut.draw_line(char='█')
+        print(self.Clr.hex("#0088ff"))
+        self.print_menu_art()
+        print(self.Clr.rst())
+        self.Gut.draw_line(char='+')
+        menu_text_string = self.menu_text()
+        return menu_text_string
+
     def main_loop(self):
         in_menu = True
         while in_menu:
-            self.Gut.clear_screen()
-            self.Gut.draw_line(char='█')
-            self.print_menu_art()
-            self.Gut.draw_line(char='+')
-            menu_text_string = self.menu_text()
+            menu_text_string = self.print_full_menu_UI()
             user_input = self.Gut.menu_select(self.menu_options, text=menu_text_string)
 
 
