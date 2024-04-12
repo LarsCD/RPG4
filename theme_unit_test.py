@@ -25,6 +25,6 @@ if __name__ == "__main__":
 
     options = {'1': 'Option 1', '2': 'Option 2', '3': 'Option 3'}
 
-    Gut.menu_select(title=f"{Color.hex('#ff0000', bold=True)}BATTLE{rst}", options=options, text=string)
+    Gut.menu_select(title=f"{Color.hex('#ff0000', bold=True)}BATTLE{rst}", menu_options=options, text=string)
 
     click = input()

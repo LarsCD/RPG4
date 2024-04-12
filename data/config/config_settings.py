@@ -1,7 +1,6 @@
 DEFAULT_GUT_SETTINGS = {
     'os': 'windows',
     'char': '█',
-    'default_line_size': 80
 }
 DEFAULT_FILE_SETTINGS = {
     'file_path': r'/files/test_files',
@@ -17,8 +16,8 @@ AUTH_SETTINGS = {
 }
 GAME_DEFAULTS = {
     'game_name': "RPG 4",
-    'game_version': 'v0.0.2'
+    'game_version': 'v0.0.3'
 }
 GAME_SETTINGS = {
-
+    'game_resolution': [40, 80]
 }

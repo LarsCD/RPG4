@@ -48,8 +48,3 @@ By: {self.Clr.bold()}LarsCD{rst}
         while in_menu:
             menu_text_string = self.print_full_menu_UI()
             user_input = self.Gut.menu_select(self.menu_options, text=menu_text_string)
-
-
-if __name__ == '__main__':
-    Main_Menu().main_loop()
-

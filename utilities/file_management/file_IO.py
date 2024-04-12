@@ -31,7 +31,7 @@ class FileIO:
         :return:
         """
 
-        # in case of given path is None, use default file settings
+        # in case of given path is None, use default file gut_settings
         if path is None:
             path = DEFAULT_FILE_SETTINGS['file_path']
 
@@ -62,7 +62,7 @@ class FileIO:
         :return:
         """
 
-        # in case of given path is None, use default file settings
+        # in case of given path is None, use default file gut_settings
         if path is None:
             path = DEFAULT_FILE_SETTINGS['file_path']
 
