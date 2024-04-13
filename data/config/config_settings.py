@@ -15,7 +15,7 @@ AUTH_SETTINGS = {
     'file_extension': '.KEY'
 }
 GAME_DEFAULTS = {
-    'game_name': "RPG 4",
+    'game_name': "RPG 4 ",
     'game_version': 'v0.0.3.1'
 }
 GAME_SETTINGS = {
