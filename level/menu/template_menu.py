@@ -1,7 +1,9 @@
 from level.menu.Menu_Class import Menu_Class
 from utilities.GUT_2 import Color, GUT
-from data.config.config_settings import DEFAULT_GUT_SETTINGS
-from assets.art.cow_overlord_sprite_art import cow_overlord_sprite_art
+from ascii_art_tester import ascii_animator
+
+from assets.art.characters.enemies.frog_sprite_art import frog_sprite_art
+from assets.art.animations.slash_1 import frames as animation_slash_1
 
 
 class Template_Menu(Menu_Class):
@@ -9,6 +11,7 @@ class Template_Menu(Menu_Class):
         # imports
         self.Gut = GUT()
         self.Clr = Color()
+        self.animator = ascii_animator()
 
         # settings
         menu_options = {
@@ -17,7 +20,7 @@ class Template_Menu(Menu_Class):
             '3': f'{self.Clr.hex("#ff0000", bold=True)}Disengage{self.Clr.rst()}',
         }
         self.menu_settings = {
-            'menu_art': cow_overlord_sprite_art,
+            'menu_art': frog_sprite_art,
             'menu_char': '+',
             'menu_text': '[TEXT]',
             'menu_title': '[TITLE]',
@@ -31,13 +34,13 @@ class Template_Menu(Menu_Class):
 
     def user_input_manager(self, user_input):
         match user_input:
-            case 1:
+            case '1':
                 # attack
-                pass
-            case 2:
+                self.animator.animate(animation_slash_1, loop=1)
+            case '2':
                 # inventory
                 pass
-            case 3:
+            case '3':
                 # disengage
                 pass
 
