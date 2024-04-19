@@ -1,0 +1,10 @@
+[INFO][2024-04-20 01:21:46,414]: Dataloader > loading items data
+[INFO][2024-04-20 01:21:46,414]: Dataloader > loading 'placeholder_items.json'
+[INFO][2024-04-20 01:21:46,415]: Inventory > adding item 'placeholder_apple' x2 to Player
+[WARNING][2024-04-20 01:21:46,415]: Inventory > could not remove item 'placeholder_apple' from Player: only x2 in inventory (want to remove x3)
+[INFO][2024-04-20 01:21:46,415]: Inventory > adding item 'placeholder_weapon' x1 to Player
+[INFO][2024-04-20 01:21:46,415]: Inventory > removing item 'placeholder_apple' x1 to Player
+[INFO][2024-04-20 01:21:46,416]: Inventory > adding item 'throwable_apple' x2 to Player
+[WARNING][2024-04-20 01:21:46,416]: Item > 'throwable_apple' (<classes.Item.Item object at 0x000001F0D83E2800>) is not stackable, setting quantity to 1
+[WARNING][2024-04-20 01:21:46,416]: Item > 'throwable_apple' (<classes.Item.Item object at 0x000001F0D83E2800>) is not stackable, setting quantity to 1
+[WARNING][2024-04-20 01:21:46,416]: Item > 'throwable_apple' (<classes.Item.Item object at 0x000001F0D83E2800>) is not stackable, setting quantity to 1

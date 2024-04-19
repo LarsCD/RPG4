@@ -27,5 +27,5 @@ Inventory.remove_item(item_data[0]['placeholder_apple'], 1)
 Inventory.add_item(item_data[0]['throwable_apple'], 2)
 print(Inventory.content_list)
 
-# Template_Menu().main_loop()
 Main_Menu().main_loop()
+# Template_Menu().main_loop()
