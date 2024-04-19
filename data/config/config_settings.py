@@ -11,13 +11,16 @@ DEV_SETTINGS = {
     'logging_enabled': True
 }
 AUTH_SETTINGS = {
-    'auth_key_dir': r'/src/engine/auth/keys',
+    'auth_key_dir': r'/src/engine/auth/keys/',
     'file_extension': '.KEY'
 }
 GAME_DEFAULTS = {
-    'game_name': "RPG 4 ",
-    'game_version': 'v0.0.3.1'
+    'game_name': "RPG 4",
+    'game_version': 'v0.0.4'
 }
 GAME_SETTINGS = {
     'game_resolution': [40, 80]
+}
+DATALOADER_SETTINGS = {
+    'item_dir_path': r'/data/items/'
 }

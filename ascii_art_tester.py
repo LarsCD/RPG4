@@ -1,7 +1,7 @@
 import time
 
 from utilities.GUT_2 import GUT
-from assets.art.animations.slash_1 import frames as animation_slash_1
+from art.animations.slash_1 import frames as animation_slash_1
 
 
 class ascii_animator:
@@ -17,4 +17,5 @@ class ascii_animator:
                 time.sleep(self.animation_speed)
 
 
-# ascii_animator().animate(animation_slash_1)
+if __name__ == '__main__':
+    ascii_animator().animate(animation_slash_1)

@@ -41,9 +41,9 @@ class EncryptionManager:
 
     def encrypt_data(self, data, key) -> bytes:
         """
-        Encrypt data using a provided key
+        Encrypt item_data using a provided key
         """
-        self.log(logging.DEBUG, f'encrypting data...')
+        self.log(logging.DEBUG, f'encrypting item_data...')
 
         encrypted_data = None
 
@@ -60,10 +60,10 @@ class EncryptionManager:
 
     def decrypt_data(self, data, key):
         """
-        Decrypt data using a provided key
+        Decrypt item_data using a provided key
         """
 
-        self.log(logging.DEBUG, f'decrypting data...')
+        self.log(logging.DEBUG, f'decrypting item_data...')
 
         decrypted_data = None
 

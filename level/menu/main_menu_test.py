@@ -1,5 +1,5 @@
 from utilities.GUT_2 import GUT, Color
-from assets.art.menu_art import MENU_ART_1
+from art.menu_art import MENU_ART_1
 from data.config.config_settings import GAME_DEFAULTS
 
 

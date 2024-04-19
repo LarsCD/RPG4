@@ -161,6 +161,21 @@ class Color:
 
         return ansi_code
 
+    @staticmethod
+    def rgb_to_hex(r, g, b):
+        """
+        Convert RGB color values to hexadecimal color representation.
+
+        Args:
+            r (int): Red value (0-255).
+            g (int): Green value (0-255).
+            b (int): Blue value (0-255).
+
+        Returns:
+            str: Hexadecimal color representation.
+        """
+        return "#{:02x}{:02x}{:02x}".format(r, g, b)
+
 
 # Example usage:
 if __name__ == "__main__":

@@ -1,0 +1,26 @@
+{
+  "placeholder_apple": {
+    "tag": "placeholder_apple",
+    "name": "Placeholder Apple",
+    "type": "consumable",
+    "description": "Honestly, this apple looks kinda sus...",
+    "value": 3,
+    "specifics": {
+      "hp": 6
+    },
+    "tier": 1,
+    "is_stackable": true
+  },
+  "placeholder_weapon": {
+    "tag": "placeholder_weapon",
+    "name": "Placeholder Weapon",
+    "type": "consumable",
+    "description": "This looks more like a game object then it looks like a weapon... And I dont even know what that means!!",
+    "value": 20,
+    "specifics": {
+      "base_damage": 5
+    },
+    "tier": 2,
+    "is_stackable": false
+  }
+}
