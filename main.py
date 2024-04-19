@@ -16,16 +16,16 @@ from classes.Item import Item
 from classes.Inventory import Inventory
 
 GameWindowTools().run_setup()
+
 Inventory = Inventory('Player')
 item_data = Dataloader().load_item_data()
-
-placeholder_item_1 = Item(item_data[0]['placeholder_apple'])
-placeholder_item_2 = Item(item_data[0]['placeholder_weapon'])
 
 Inventory.add_item(item_data[0]['placeholder_apple'], 2)
 Inventory.remove_item(item_data[0]['placeholder_apple'], 3)
 Inventory.add_item(item_data[0]['placeholder_weapon'], 1)
 Inventory.remove_item(item_data[0]['placeholder_apple'], 1)
+Inventory.add_item(item_data[0]['throwable_apple'], 2)
+print(Inventory.content_list)
 
 # Template_Menu().main_loop()
-# Main_Menu().main_loop()
+Main_Menu().main_loop()

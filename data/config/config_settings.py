@@ -16,10 +16,10 @@ AUTH_SETTINGS = {
 }
 GAME_DEFAULTS = {
     'game_name': "RPG 4",
-    'game_version': 'v0.0.4'
+    'game_version': 'v0.0.4.1'
 }
 GAME_SETTINGS = {
-    'game_resolution': [40, 80]
+    'game_resolution': [40, 120]
 }
 DATALOADER_SETTINGS = {
     'item_dir_path': r'/data/items/'

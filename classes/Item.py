@@ -1,8 +1,13 @@
+import logging
+
 from utilities.GUT_2 import Color
+from utilities.logger.dev_logger import DevLogger
 
 
 class Item:
     def __init__(self, item_data):
+        self.log = DevLogger(Item).log
+
         self.Tier = Tier()
         self.Clr = Color()
 
@@ -30,17 +35,25 @@ class Item:
         self.is_stackable = item_data['is_stackable']
         self.is_equipped = False
 
+    def check_for_stackable(self):
+        if not self.is_stackable:
+            if self.quantity > 1:
+                self.log(logging.WARNING, f'\'{self.tag}\' ({self}) is not stackable, setting quantity to 1')
+                self.quantity = 1
+
     def add_quantity(self, quantity):
         self.quantity += quantity
+        self.check_for_stackable()
 
     def remove_quantity(self, quantity):
         self.quantity -= quantity
         if self.quantity < 0:
             self.quantity = 0
+        self.check_for_stackable()
 
     def set_quantity(self, quantity):
         self.quantity = quantity
-        return quantity
+        self.check_for_stackable()
 
 
 class Tier:
@@ -77,4 +90,19 @@ class Tier:
         return self.tier_name_index[tier_nr]
 
     def get_tier_hex_color(self, tier_nr):
-        return self.tier_rgb_color[tier_nr]
+        return self.rgb_to_hex(*self.tier_rgb_color[tier_nr])
+
+    @staticmethod
+    def rgb_to_hex(r, g, b):
+        """
+        Convert RGB color values to hexadecimal color representation.
+
+        Args:
+            r (int): Red value (0-255).
+            g (int): Green value (0-255).
+            b (int): Blue value (0-255).
+
+        Returns:
+            str: Hexadecimal color representation.
+        """
+        return "#{:02x}{:02x}{:02x}".format(r, g, b)

@@ -31,4 +31,4 @@ class DevLogger:
         if self.logger_enabled:
             self.logger.log(level, message)
 
-# TODO: Fix double logging
+# TODO: Fix double (triple??) logging!

@@ -18,9 +18,23 @@
     "description": "This looks more like a game object then it looks like a weapon... And I dont even know what that means!!",
     "value": 20,
     "specifics": {
-      "base_damage": 5
+      "base_damage": 5,
+      "durability": 25
     },
     "tier": 2,
+    "is_stackable": false
+  },
+  "throwable_apple": {
+    "tag": "throwable_apple",
+    "name": "Throwable Apple",
+    "type": "weapon",
+    "description": "You could just eat it... But what if you just throw it?",
+    "value": 3,
+    "specifics": {
+      "base_damage": 1,
+      "durability": 1
+    },
+    "tier": 1,
     "is_stackable": false
   }
 }

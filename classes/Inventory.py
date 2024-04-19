@@ -24,10 +24,17 @@ class Inventory:
                 self.log(logging.INFO, f'adding item \'{item_data["tag"]}\' x{quantity} to {self.parent}')
                 self.content_list[item_data["tag"]] = self.content_list[item_data["tag"]].add_quantity(quantity)
         else:
-            # add, items does not exist
-            self.log(logging.INFO, f'adding item \'{item_data["tag"]}\' x{quantity} to {self.parent}')
-            self.content_list[item_data["tag"]] = Item(item_data)
-            self.content_list[item_data["tag"]].set_quantity(quantity)
+            item_can_stack = item_data["is_stackable"]
+            if not item_can_stack:
+                # add only one new, is not stackable
+                self.log(logging.INFO, f'adding item \'{item_data["tag"]}\' x{quantity} to {self.parent}')
+                self.content_list[item_data["tag"]] = Item(item_data)
+                self.content_list[item_data["tag"]].set_quantity(quantity)
+            else:
+                # add new
+                self.log(logging.INFO, f'adding item \'{item_data["tag"]}\' x{quantity} to {self.parent}')
+                self.content_list[item_data["tag"]] = Item(item_data)
+                self.content_list[item_data["tag"]].set_quantity(quantity)
 
     def remove_item(self, item_data, quantity):
         item_exists_in_inventory = item_data["tag"] in self.content_list
