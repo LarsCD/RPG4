@@ -30,34 +30,63 @@ class Item:
         self.tier_tag = self.Tier.get_tier_tag(self.tier)
         self.tier_name = self.Tier.get_tier_name(self.tier)
         self.tier_hex_color = self.Tier.get_tier_hex_color(self.tier)
-        self.id = 1  # indicates what kind of object it is, is used for View class
+        self.id = 1  # indicates what kind of object it is, is used for View class, 1 means item
 
         # default flags
         self.is_stackable = item_data['is_stackable']
         self.is_equipped = False
+        self.options = item_data['options']
+
+    def use_consumable(self):
+        self.log(logging.INFO, f'consuming \'{self.tag}\' ({self})')
+        if 'use_consumable' in self.options:
+            self.remove_quantity(1)
+            return self.specifics['health']
+
+    def use_weapon(self):
+        self.log(logging.INFO, f'using weapon \'{self.tag}\' ({self})')
+        if 'use_weapon' in self.options:
+            self.remove_durability()
+
+    def remove_durability(self):
+        self.log(logging.INFO, f'removing durability \'{self.tag}\' ({self})')
+        if 'remove_durability' in self.options:
+            self.specifics['durability'] -= 1
+
+    def sell(self):
+        self.log(logging.INFO, f'selling item \'{self.tag}\' ({self})')
+        if 'sell' in self.options:
+            # sell the item
+            pass
 
     def view(self):
         View(self)
 
-    def check_for_stackable(self):
+    def update_quantity(self):
         if not self.is_stackable:
             if self.quantity > 1:
                 self.log(logging.WARNING, f'\'{self.tag}\' ({self}) is not stackable, setting quantity to 1')
                 self.quantity = 1
+        if self.quantity < 0:
+            self.quantity = 0
+        if self.quantity == 0:
+            self.destroy()
 
     def add_quantity(self, quantity):
         self.quantity += quantity
-        self.check_for_stackable()
+        self.update_quantity()
 
     def remove_quantity(self, quantity):
         self.quantity -= quantity
-        if self.quantity < 0:
-            self.quantity = 0
-        self.check_for_stackable()
+        self.update_quantity()
 
     def set_quantity(self, quantity):
         self.quantity = quantity
-        self.check_for_stackable()
+        self.update_quantity()
+
+    def destroy(self):
+        self.log(logging.INFO, f'DESTROYING \'{self.tag}\' ({self})')
+        del self
 
 
 class Tier:

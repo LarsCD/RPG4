@@ -11,6 +11,13 @@ class Inventory:
         self.parent = parent
         self.content_list = {}
 
+    def contents(self):
+        self.update_inventory()
+        return self.content_list
+
+    def update_inventory(self):
+        self.remove_empty_items()
+
     def add_item(self, item_data, quantity):
         item_exists_in_inventory = item_data["tag"] in self.content_list
         if item_exists_in_inventory:
@@ -66,6 +73,12 @@ class Inventory:
                 quantity_list.append(1)
         for i, item in enumerate(list_with_items):
             self.remove_item(item, quantity_list[i])
+
+    def remove_empty_items(self):  # TODO: Make work :D
+        for item in self.content_list:
+            item_class = self.content_list[item]
+            if item_class.quantity == 0:
+                item_class.destroy()
 
     def sort_inventory(self):
         # TODO: change so that this works for this inventory system

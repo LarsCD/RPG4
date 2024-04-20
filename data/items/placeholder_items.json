@@ -10,7 +10,7 @@
     },
     "tier": 1,
     "is_stackable": true,
-    "option": [
+    "options": [
       "use_consumable",
       "sell"
     ]
@@ -27,7 +27,7 @@
     },
     "tier": 2,
     "is_stackable": false,
-    "option": [
+    "options": [
       "use_weapon",
       "remove_durability",
       "sell"
@@ -45,7 +45,7 @@
     },
     "tier": 3,
     "is_stackable": false,
-    "option": [
+    "options": [
       "use_weapon",
       "remove_durability",
       "sell"
@@ -63,7 +63,7 @@
     },
     "tier": 1,
     "is_stackable": false,
-    "option": [
+    "options": [
       "use_weapon",
       "remove_durability",
       "sell"

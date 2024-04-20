@@ -19,9 +19,6 @@ class View:
         return formatted_description
 
     def item_display(self):
-        item = self.object_class
-        self.Gut.clear_screen()
-        self.Gut.draw_line(char='█')
         # colors
         r = self.Clr.hex('#ff0000')
         b = self.Clr.hex('#00aaff')
@@ -29,11 +26,16 @@ class View:
         g = self.Clr.hex('#03fc13')
         it = self.Clr.italicize()
         rst = self.Clr.rst()
+        # item display
+        item = self.object_class
+        self.Gut.clear_screen()
+        print(self.Clr.hex(item.tier_hex_color))
+        self.Gut.draw_line(char='█')
+        print(rst)
         string = f"""    
-        [  {self.Clr.hex(item.tier_hex_color)}{item.name}{rst} [{self.Clr.italicize()}{item.tier_name}{rst}]  ]
-        {self.Clr.italicize()}{str(item.type).capitalize()}{rst}
+        [{self.Clr.hex(item.tier_hex_color)}{item.name}{rst} - {self.Clr.italicize()}{item.tier_name}{rst}]
+        ({self.Clr.italicize()}{str(item.type).capitalize()}{rst})
         
-        Description: 
         {it}"{item.description}"{rst}
 """
         string2 = f"""

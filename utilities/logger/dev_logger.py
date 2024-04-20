@@ -32,3 +32,4 @@ class DevLogger:
             self.logger.log(level, message)
 
 # TODO: Fix double (triple??) logging!
+# TODO: It seems to log for every instance the class has... which is interesting..?
