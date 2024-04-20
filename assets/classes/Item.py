@@ -2,6 +2,7 @@ import logging
 
 from utilities.GUT_2 import Color
 from utilities.logger.dev_logger import DevLogger
+from level.menu.views.View import View
 
 
 class Item:
@@ -28,12 +29,15 @@ class Item:
         self.tier = item_data['tier']
         self.tier_tag = self.Tier.get_tier_tag(self.tier)
         self.tier_name = self.Tier.get_tier_name(self.tier)
-        self.tier_hex_color = self.Clr.rgb_to_hex(*self.Tier.get_tier_hex_color(self.tier))
-        self.id = 0  # don't know what to do with this
+        self.tier_hex_color = self.Tier.get_tier_hex_color(self.tier)
+        self.id = 1  # indicates what kind of object it is, is used for View class
 
         # default flags
         self.is_stackable = item_data['is_stackable']
         self.is_equipped = False
+
+    def view(self):
+        View(self)
 
     def check_for_stackable(self):
         if not self.is_stackable:

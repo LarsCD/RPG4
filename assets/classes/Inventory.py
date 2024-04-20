@@ -1,6 +1,6 @@
 import logging
 
-from classes.Item import Item
+from assets.classes.Item import Item
 from utilities.logger.dev_logger import DevLogger
 
 

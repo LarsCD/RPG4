@@ -1,5 +1,5 @@
 from utilities.GUT_2 import Color, GUT
-from classes.Item import Tier
+from assets.classes.Item import Tier
 
 if __name__ == "__main__":
     Gut = GUT()
@@ -27,12 +27,13 @@ if __name__ == "__main__":
 
     options = {'1': 'Option 1', '2': 'Option 2', '3': 'Option 3'}
 
-    Gut.menu_select(title=f"{Color.hex('#ff0000', bold=True)}BATTLE{rst}", menu_options=options, text=string)
-
-    item_names = ['Apple', 'Chicken', 'Knight Sword', 'Kalapos\' Axe', 'Metasteel Dwarven Shield', 'Golden Wizard\'s Wand']
+    item_names = ['Apple', 'Chicken', 'Knight Sword', 'Kalapos\' Axe', 'Metasteel Dwarven Shield',
+                  'Golden Wizard\'s Wand']
 
     for i, name in enumerate(item_names):
-        tier_color = Tier.get_tier_hex_color(i+1)
-        print(f'{Color.hex(tier_color)}{name}{rst} ({Tier.get_tier_name(i+1)})')
+        tier_color = Tier.get_tier_hex_color(i + 1)
+        print(f'{Color.hex(tier_color, bold=True)}{name}{rst} ({Color.italicize()}{Tier.get_tier_name(i + 1)}{rst})')
+
+    Gut.menu_select(title=f"{Color.hex('#ff0000', bold=True)}BATTLE{rst}", menu_options=options, text=string)
 
     click = input()

@@ -6,23 +6,50 @@
     "description": "Honestly, this apple looks kinda sus...",
     "value": 3,
     "specifics": {
-      "hp": 6
+      "health": 6
     },
     "tier": 1,
-    "is_stackable": true
+    "is_stackable": true,
+    "option": [
+      "use_consumable",
+      "sell"
+    ]
   },
   "placeholder_weapon": {
     "tag": "placeholder_weapon",
     "name": "Placeholder Weapon",
-    "type": "consumable",
+    "type": "weapon",
     "description": "This looks more like a game object then it looks like a weapon... And I dont even know what that means!!",
     "value": 20,
     "specifics": {
-      "base_damage": 5,
+      "attack": 5,
       "durability": 25
     },
     "tier": 2,
-    "is_stackable": false
+    "is_stackable": false,
+    "option": [
+      "use_weapon",
+      "remove_durability",
+      "sell"
+    ]
+  },
+  "orkian_battle_axe": {
+    "tag": "orkian_battle_axe",
+    "name": "Orkain Battle Axe",
+    "type": "weapon",
+    "description": "A primary weapon for Orks, they use this for everything. It smells like that too...",
+    "value": 430,
+    "specifics": {
+      "attack": 20,
+      "durability": 65
+    },
+    "tier": 3,
+    "is_stackable": false,
+    "option": [
+      "use_weapon",
+      "remove_durability",
+      "sell"
+    ]
   },
   "throwable_apple": {
     "tag": "throwable_apple",
@@ -35,6 +62,19 @@
       "durability": 1
     },
     "tier": 1,
-    "is_stackable": false
+    "is_stackable": false,
+    "option": [
+      "use_weapon",
+      "remove_durability",
+      "sell"
+    ]
   }
 }
+
+
+
+
+
+
+
+

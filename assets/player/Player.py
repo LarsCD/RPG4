@@ -1,4 +1,4 @@
-from classes.Inventory import Inventory
+from assets.classes.Inventory import Inventory
 
 
 class Player(Inventory):
