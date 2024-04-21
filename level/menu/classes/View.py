@@ -37,8 +37,13 @@ class View:
         item = self.object_class
         char = '█'
         colored_line = f"{self.Clr.hex(item.tier_hex_color)}{str(char) * int(self.game_settings['game_resolution'][1])}{rst}"
-        return_string += f"""{colored_line}\n\n [{self.Clr.hex(item.tier_hex_color)}{item.name}{rst} - {self.Clr.italicize()}{item.tier_name}{rst}]
- {self.Clr.italicize()}{str(item.type).capitalize()}{rst}\n\n   {it}"{item.description}"{rst}
+        return_string += f"""{colored_line}
+
+    {self.Clr.hex(item.tier_hex_color)}{item.name}{rst} - {self.Clr.italicize()}{str(item.type).capitalize()}{rst} ({item.quantity}x)
+    {self.Clr.italicize()}{item.tier_name}{rst}
+ 
+    {it}"{item.description}"{rst}
+
         
 """
         for specific in item.specifics:
@@ -46,7 +51,5 @@ class View:
                 f"    {g}{item.specifics[specific]}{rst} {str(specific).replace('_', ' ').capitalize()}")
 
         return_string += f"""\n
-    Amount: x{item.quantity}
-    Value: {y}{item.value}{rst} gold
-"""
+    Worth {y}{item.value}{rst} Gold"""
         return return_string

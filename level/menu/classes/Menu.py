@@ -32,5 +32,6 @@ class Menu:
         self.print_menu_art()
         print(self.Clr.rst())
         self.Gut.draw_line(char=self.menu_line_char)
+        print('')
         menu_text_string = self.menu_text
         return menu_text_string

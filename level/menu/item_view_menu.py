@@ -18,8 +18,8 @@ class Item_View_Menu(Menu):
         self.menu_settings = {
             'menu_art': View(self.current_item).return_return_display(),
             'menu_char': '',
-            'menu_text': '[TEXT]',
-            'menu_title': '[TITLE]',
+            'menu_text': '',
+            'menu_title': '',
             'menu_options': self.menu_options,
             'menu_line_char': '+',
             'menu_art_default_color': '#ffffff'
