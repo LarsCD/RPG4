@@ -3,7 +3,7 @@ import logging
 from level.menu.item_view_menu import Item_View_Menu
 from utilities.GUT_2 import Color
 from utilities.logger.dev_logger import DevLogger
-from level.menu.views.View import View
+from level.menu.classes.View import View
 
 
 class Item:

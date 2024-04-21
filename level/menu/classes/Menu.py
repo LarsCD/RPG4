@@ -2,7 +2,7 @@ from utilities.GUT_2 import GUT, Color
 from data.config.config_settings import GAME_DEFAULTS
 
 
-class Menu_Class:
+class Menu:
     def __init__(self, menu_settings, game_defaults=GAME_DEFAULTS):
         # imports
         self.Gut = GUT()

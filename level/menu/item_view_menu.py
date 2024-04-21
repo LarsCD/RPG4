@@ -1,10 +1,10 @@
-from level.menu.Menu_Class import Menu_Class
-from level.menu.views.View import View
+from level.menu.classes.Menu import Menu
+from level.menu.classes.View import View
 from utilities.GUT_2 import Color, GUT
 from ascii_art_tester import ascii_animator
 
 
-class Item_View_Menu(Menu_Class):
+class Item_View_Menu(Menu):
     def __init__(self, item_class):
         # imports
         self.Gut = GUT()

@@ -15,7 +15,6 @@
       "sell"
     ],
     "item_view_options": [
-      "inspect",
       "eat"
     ]
   },
@@ -33,11 +32,12 @@
     "is_stackable": false,
     "options": [
       "use_weapon",
+      "equip_weapon",
       "remove_durability",
       "sell"
     ],
     "item_view_options": [
-      "inspect"
+      "equip"
     ]
   },
   "orkian_battle_axe": {
@@ -54,11 +54,12 @@
     "is_stackable": false,
     "options": [
       "use_weapon",
+      "equip_weapon",
       "remove_durability",
       "sell"
     ],
     "item_view_options": [
-      "inspect"
+      "equip"
     ]
   },
   "throwable_apple": {
@@ -75,11 +76,12 @@
     "is_stackable": false,
     "options": [
       "use_weapon",
+      "equip_weapon",
       "remove_durability",
       "sell"
     ],
     "item_view_options": [
-      "inspect"
+      "equip"
     ]
   }
 }

@@ -1,4 +1,4 @@
-from level.menu.Menu_Class import Menu_Class
+from level.menu.classes.Menu import Menu
 from utilities.GUT_2 import Color, GUT
 from ascii_art_tester import ascii_animator
 
@@ -6,7 +6,7 @@ from art.characters.enemies.frog_sprite_art import frog_sprite_art
 from art.animations.slash_1 import frames as animation_slash_1
 
 
-class Template_Menu(Menu_Class):
+class Template_Menu(Menu):
     def __init__(self):
         # imports
         self.Gut = GUT()
