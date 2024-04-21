@@ -10,6 +10,7 @@ class Inventory:
 
         self.parent = parent
         self.content_list = {}
+        self.id = 2  # indicates what kind of object it is, is used for View class, 2 means inventory
 
     def get_contents(self) -> dict:
         """
@@ -31,6 +32,7 @@ class Inventory:
 
     def update_inventory(self):
         self.remove_empty_items()
+        self.sort_inventory()
 
     def add_item(self, item_data, quantity):
         self.update_inventory()
@@ -102,9 +104,8 @@ class Inventory:
             self.content_list.pop(removal_item)
 
     def sort_inventory(self):
-        self.update_inventory()
-        # TODO: change so that this works for this inventory system
+        # TODO: Hmmmmmmmmmm yummy shit code that doesnt work, fix please! :D
         # sets order of items from low to high tier (with fuckin magic...)
-        for category in self.inventory:
-            new_categorized_inventory = sorted(self.inventory[category], key=lambda x: x.tier, reverse=False)
-            self.inventory[category] = new_categorized_inventory
+        for category in self.content_list:
+            new_categorized_inventory = sorted(self.content_list[category], key=lambda x: x.tier, reverse=False)
+            self.content_list = new_categorized_inventory

@@ -16,7 +16,7 @@ class Item_View_Menu(Menu):
         self.menu_options = {}
         self.generate_menu_options()
         self.menu_settings = {
-            'menu_art': View(self.current_item).return_return_display(),
+            'menu_art': View(self.current_item).return_item_display(),
             'menu_char': '',
             'menu_text': '',
             'menu_title': '',

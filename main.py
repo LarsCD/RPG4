@@ -8,6 +8,7 @@ File: Main file to run tests
 
 ###############################################################
 """
+from level.menu.classes.View import View
 from level.menu.main_menu_test import Main_Menu
 from utilities.game_window_tools import GameWindowTools
 from utilities.dataloader import Dataloader
@@ -25,10 +26,12 @@ Inventory.add_item(item_data[0]['placeholder_weapon'], 1)
 Inventory.add_item(item_data[0]['throwable_apple'], 2)
 Inventory.add_item(item_data[0]['orkian_battle_axe'], 1)
 
-Inventory.get_contents()['placeholder_apple'].item_view_menu()
-Inventory.get_contents()['placeholder_weapon'].item_view_menu()
-Inventory.get_contents()['throwable_apple'].item_view_menu()
-Inventory.get_contents()['orkian_battle_axe'].item_view_menu()
+# Inventory.get_contents()['placeholder_apple'].item_view_menu()
+# Inventory.get_contents()['placeholder_weapon'].item_view_menu()
+# Inventory.get_contents()['throwable_apple'].item_view_menu()
+# Inventory.get_contents()['orkian_battle_axe'].item_view_menu()
+
+print(View(Inventory))
 
 # Inventory.content_list['placeholder_apple'].view()
 # Inventory.content_list['placeholder_weapon'].view()

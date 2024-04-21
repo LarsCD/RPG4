@@ -1,4 +1,6 @@
 # from assets.classes.Item import Item
+import platform
+
 from utilities.GUT_2 import GUT, Color
 from data.config.config_settings import GAME_SETTINGS
 
@@ -13,18 +15,16 @@ class View:
 
     def display_manager(self):
         if self.object_class.id == 1:
-            self.print_item_display()
+            self.return_item_display()
+        if self.object_class.id == 2:
+            self.return_inventory_display()
 
     @staticmethod
     def format_description(description):
         formatted_description = "{:<40}".format(description[:40])
         return formatted_description
 
-    def print_item_display(self):
-        display_string = self.return_return_display()
-        return display_string
-
-    def return_return_display(self):
+    def return_item_display(self):
         return_string = """"""
         # colors
         r = self.Clr.hex('#ff0000')
@@ -53,3 +53,24 @@ class View:
         return_string += f"""\n
     Worth {y}{item.value}{rst} Gold"""
         return return_string
+
+    def return_inventory_display(self):
+        return_string = """"""
+        # colors
+        r = self.Clr.hex('#ff0000')
+        b = self.Clr.hex('#00aaff')
+        y = self.Clr.hex('#ffd900')
+        g = self.Clr.hex('#03fc13')
+        it = self.Clr.italicize()
+        rst = self.Clr.rst()
+        # item display
+        inventory = self.object_class
+        char = '█'
+        colored_line = f"{rst}{str(char) * int(self.game_settings['game_resolution'][1])}{rst}"
+        return_string += f"""{colored_line}
+    {it}Inventory{rst}
+"""     
+        for item_name in inventory.get_contents():
+            item_class = inventory.get_contents()[item_name]
+            print(f"> {self.Clr.hex(item_class.tier_hex_color)}{item_class.name}{rst} ({item_class.quantity}x)")
+
