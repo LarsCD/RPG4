@@ -11,14 +11,29 @@ class Inventory:
         self.parent = parent
         self.content_list = {}
 
-    def contents(self):
+    def get_contents(self) -> dict:
+        """
+        Returns the full data list of the contents of the inventory
+        :return: list
+        """
         self.update_inventory()
         return self.content_list
+
+    def get_index_list(self) -> list:
+        """
+        Returns a list of all item keys (also serves as list of all item tags)
+        :return: list
+        """
+        index_list = []
+        for item_index in self.content_list:
+            index_list.append(item_index)
+        return index_list
 
     def update_inventory(self):
         self.remove_empty_items()
 
     def add_item(self, item_data, quantity):
+        self.update_inventory()
         item_exists_in_inventory = item_data["tag"] in self.content_list
         if item_exists_in_inventory:
             item_can_stack = item_data["is_stackable"]
@@ -44,6 +59,7 @@ class Inventory:
                 self.content_list[item_data["tag"]].set_quantity(quantity)
 
     def remove_item(self, item_data, quantity):
+        self.update_inventory()
         item_exists_in_inventory = item_data["tag"] in self.content_list
         if not item_exists_in_inventory:
             self.log(logging.WARNING, f'could not remove item \'{item_data["tag"]}\' from {self.parent}: item not in inventory')
@@ -57,6 +73,7 @@ class Inventory:
                 self.content_list[item_data["tag"]].remove_quantity(quantity)
 
     def add_item_as_list(self, list_with_items, quantity_list=None):
+        self.update_inventory()
         self.log(logging.INFO, f'adding items in list to {self}')
         if quantity_list is None:
             quantity_list = []
@@ -66,6 +83,7 @@ class Inventory:
             self.add_item(item, quantity_list[i])
 
     def remove_item_as_list(self, list_with_items, quantity_list=None):
+        self.update_inventory()
         self.log(logging.INFO, f'removing items in list to {self}')
         if quantity_list is None:
             quantity_list = []
@@ -74,13 +92,17 @@ class Inventory:
         for i, item in enumerate(list_with_items):
             self.remove_item(item, quantity_list[i])
 
-    def remove_empty_items(self):  # TODO: Make work :D
+    def remove_empty_items(self):
+        remove_items_list = []
         for item in self.content_list:
             item_class = self.content_list[item]
             if item_class.quantity == 0:
-                item_class.destroy()
+                remove_items_list.append(item)
+        for removal_item in remove_items_list:
+            self.content_list.pop(removal_item)
 
     def sort_inventory(self):
+        self.update_inventory()
         # TODO: change so that this works for this inventory system
         # sets order of items from low to high tier (with fuckin magic...)
         for category in self.inventory:
