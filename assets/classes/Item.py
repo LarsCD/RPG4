@@ -1,5 +1,6 @@
 import logging
 
+from level.menu.item_view_menu import Item_View_Menu
 from utilities.GUT_2 import Color
 from utilities.logger.dev_logger import DevLogger
 from level.menu.views.View import View
@@ -36,6 +37,7 @@ class Item:
         self.is_stackable = item_data['is_stackable']
         self.is_equipped = False
         self.options = item_data['options']
+        self.item_view_options = item_data['item_view_options']
 
     def use_consumable(self):
         self.log(logging.INFO, f'consuming \'{self.tag}\' ({self})')
@@ -61,6 +63,9 @@ class Item:
 
     def view(self):
         View(self)
+
+    def item_view_menu(self):
+        Item_View_Menu(self).main_loop()
 
     def update_quantity(self):
         if not self.is_stackable:

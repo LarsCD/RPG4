@@ -69,6 +69,8 @@ class GUT:
         if text:
             self.draw_text(text)
         for key, value in menu_options.items():
+            if 'exit' in value.lower():
+                print('')
             print(f' [{self.hl_color}{key.capitalize()}{self.rst}]: {value}')
 
         for line in error_text:

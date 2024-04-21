@@ -33,7 +33,7 @@ class Item_View_Menu(Menu_Class):
         for i, option in enumerate(self.current_item.item_view_options):
             self.menu_options[f"{i+1}"] = str(option).replace('_', ' ').capitalize()
             highest_index = i
-        self.menu_options[f"{highest_index+2}"] = f'{self.Clr.hex("#ff0000")}Exit{self.Clr.rst()}'
+        self.menu_options[f"e"] = f'{self.Clr.hex("#ff0000")}Exit{self.Clr.rst()}'
 
     def user_input_manager(self, user_input):
         match user_input:

@@ -24,9 +24,10 @@ class Menu_Class:
     def print_menu_art(self):
         print(self.menu_art)
 
-    def print_full_menu_UI(self):
+    def print_full_menu_UI(self, no_top_bar=False):
         self.Gut.clear_screen()
-        self.Gut.draw_line(char=self.menu_char)
+        if not no_top_bar:
+            self.Gut.draw_line(char=self.menu_char)
         print(self.Clr.hex(self.menu_art_default_color))
         self.print_menu_art()
         print(self.Clr.rst())
