@@ -32,7 +32,7 @@ class Inventory:
 
     def update_inventory(self):
         self.remove_empty_items()
-        self.sort_inventory()
+        # self.sort_inventory()
 
     def add_item(self, item_data, quantity):
         self.update_inventory()
@@ -105,7 +105,17 @@ class Inventory:
 
     def sort_inventory(self):
         # TODO: Hmmmmmmmmmm yummy shit code that doesnt work, fix please! :D
-        # sets order of items from low to high tier (with fuckin magic...)
-        for category in self.content_list:
-            new_categorized_inventory = sorted(self.content_list[category], key=lambda x: x.tier, reverse=False)
-            self.content_list = new_categorized_inventory
+        # Convert the dictionary to a list of (key, value) tuples for sorting
+        content_list_items = list(self.content_list.items())
+
+        # Sort the list first by 'type' and then by 'tier'
+        for _ in self.content_list:
+            content_list_items = list(self.content_list.items())
+            sorted_content_list = sorted(
+                content_list_items,
+                key=lambda item: (item[1].type, item[1].tier)
+            )
+
+            self.content_list = dict(sorted_content_list)
+
+        # Convert the sorted list back into a dictionary

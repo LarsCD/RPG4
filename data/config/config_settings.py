@@ -16,7 +16,7 @@ AUTH_SETTINGS = {
 }
 GAME_DEFAULTS = {
     'game_name': "RPG 4",
-    'game_version': 'v0.0.4.7'
+    'game_version': 'v0.0.4.8'
 }
 GAME_SETTINGS = {
     'game_resolution': [37, 120]

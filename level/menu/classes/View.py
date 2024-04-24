@@ -1,6 +1,3 @@
-# from assets.classes.Item import Item
-import platform
-
 from utilities.GUT_2 import GUT, Color
 from data.config.config_settings import GAME_SETTINGS
 

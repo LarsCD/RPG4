@@ -19,18 +19,21 @@ GameWindowTools().run_setup()
 Inventory = Inventory('Player')
 item_data = Dataloader().load_item_data()
 
+
 Inventory.add_item(item_data[0]['placeholder_apple'], 5)
+Inventory.add_item(item_data[0]['orkian_battle_axe'], 1)
 # Inventory.remove_item(item_data[0]['placeholder_apple'], 3)
 Inventory.add_item(item_data[0]['placeholder_weapon'], 1)
 # Inventory.remove_item(item_data[0]['placeholder_apple'], 1)
 Inventory.add_item(item_data[0]['throwable_apple'], 2)
-Inventory.add_item(item_data[0]['orkian_battle_axe'], 1)
 
 # Inventory.get_contents()['placeholder_apple'].item_view_menu()
 # Inventory.get_contents()['placeholder_weapon'].item_view_menu()
 # Inventory.get_contents()['throwable_apple'].item_view_menu()
 # Inventory.get_contents()['orkian_battle_axe'].item_view_menu()
 
+print(View(Inventory))
+Inventory.sort_inventory()
 print(View(Inventory))
 
 # Inventory.content_list['placeholder_apple'].view()
