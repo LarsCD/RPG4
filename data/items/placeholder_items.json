@@ -83,7 +83,239 @@
     "item_view_options": [
       "equip"
     ]
-  }
+  },
+  "elixir_of_vitality": {
+      "tag": "elixir_of_vitality",
+      "name": "Elixir of Vitality",
+      "type": "consumable",
+      "description": "A bright red potion that restores a significant amount of health.",
+      "value": 150,
+      "specifics": {
+        "healing": 75
+      },
+      "tier": 2,
+      "is_stackable": true,
+      "options": [
+        "use_potion",
+        "inspect",
+        "sell"
+      ],
+      "item_view_options": [
+        "drink"
+      ]
+  },
+  "arcane_long_sword": {
+      "tag": "arcane_long_sword",
+      "name": "Arcane Long Sword",
+      "type": "weapon",
+      "description": "A finely crafted sword infused with arcane energy, perfect for battling magical creatures.",
+      "value": 600,
+      "specifics": {
+        "attack": 35,
+        "durability": 55
+      },
+      "tier": 4,
+      "is_stackable": false,
+      "options": [
+        "use_weapon",
+        "equip_weapon",
+        "remove_durability",
+        "sell"
+      ],
+      "item_view_options": [
+        "equip"
+      ]
+  },
+  "cyphers_mace": {
+      "tag": "cyphers_mace",
+      "name": "Cyphers Mace",
+      "type": "weapon",
+      "description": "Cyphers Mace was made for Lord Cypher himself, it served him well until he died... Tragic.",
+      "value": 1100,
+      "specifics": {
+        "attack": 45,
+        "durability": 85
+      },
+      "tier": 5,
+      "is_stackable": false,
+      "options": [
+        "use_weapon",
+        "equip_weapon",
+        "remove_durability",
+        "sell"
+      ],
+      "item_view_options": [
+        "equip"
+      ]
+  },
+  "leather_armor": {
+      "tag": "leather_armor",
+      "name": "Leather Armor",
+      "type": "armor",
+      "description": "Lightweight armor made of toughened leather, provides moderate protection.",
+      "value": 350,
+      "specifics": {
+        "defense": 5,
+        "durability": 30
+      },
+      "tier": 1,
+      "is_stackable": false,
+      "options": [
+        "equip_armor",
+        "repair_armor",
+        "remove_durability",
+        "sell"
+      ],
+      "item_view_options": [
+        "equip"
+      ]
+  },
+  "shield_of_resilience": {
+      "tag": "shield_of_resilience",
+      "name": "Shield of Resilience",
+      "type": "armor",
+      "description": "A sturdy shield that absorbs a significant amount of damage.",
+      "value": 500,
+      "specifics": {
+        "defense": 25,
+        "durability": 60
+      },
+      "tier": 3,
+      "is_stackable": false,
+      "options": [
+        "equip_shield",
+        "repair_shield",
+        "remove_durability",
+        "sell"
+      ],
+      "item_view_options": [
+        "equip"
+      ]
+  },
+  "scroll_of_fireball": {
+      "tag": "scroll_of_fireball",
+      "name": "Scroll of Fireball",
+      "type": "spell_scroll",
+      "description": "A scroll containing the incantation for a powerful fireball spell.",
+      "value": 200,
+      "specifics": {
+        "damage": 50
+      },
+      "tier": 2,
+      "is_stackable": true,
+      "options": [
+        "use_spell",
+        "inspect",
+        "sell"
+      ],
+      "item_view_options": [
+        "use_spell"
+      ]
+  },
+  "ring_of_agility": {
+      "tag": "ring_of_agility",
+      "name": "Ring of Agility",
+      "type": "accessory",
+      "description": "A silver ring that grants the wearer increased agility and speed.",
+      "value": 300,
+      "specifics": {
+        "agility_bonus": 10
+      },
+      "tier": 3,
+      "is_stackable": false,
+      "options": [
+        "equip_accessory",
+        "sell"
+      ],
+      "item_view_options": [
+        "equip"
+      ]
+  },
+  "greater_health_potion": {
+      "tag": "greater_health_potion",
+      "name": "Greater Health Potion",
+      "type": "consumable",
+      "description": "A large potion that restores a substantial amount of health.",
+      "value": 250,
+      "specifics": {
+        "healing": 10,
+        "regeneration": 5
+      },
+      "tier": 3,
+      "is_stackable": true,
+      "options": [
+        "use_consumable",
+        "inspect",
+        "sell"
+      ],
+      "item_view_options": [
+        "drink"
+      ]
+  },
+  "dagger_of_stealth": {
+      "tag": "dagger_of_stealth",
+      "name": "Dagger of Stealth",
+      "type": "weapon",
+      "description": "A small dagger designed for stealthy attacks and quick strikes.",
+      "value": 450,
+      "specifics": {
+        "attack": 25,
+        "durability": 40
+      },
+      "tier": 3,
+      "is_stackable": false,
+      "options": [
+        "use_weapon",
+        "equip_weapon",
+        "remove_durability",
+        "sell"
+      ],
+      "item_view_options": [
+        "equip"
+      ]
+  },
+  "helmet_of_wisdom": {
+      "tag": "helmet_of_wisdom",
+      "name": "Helmet of Wisdom",
+      "type": "armor",
+      "description": "A sturdy helmet that grants additional wisdom to the wearer.",
+      "value": 370,
+      "specifics": {
+        "defense": 20,
+        "wisdom_bonus": 5,
+        "durability": 50
+      },
+      "tier": 3,
+      "is_stackable": false,
+      "options": [
+        "equip_armor",
+        "repair_armor",
+        "remove_durability",
+        "sell"
+      ],
+      "item_view_options": [
+        "equip"
+      ]
+  },
+  "amulet_of_protection": {
+      "tag": "amulet_of_protection",
+      "name": "Amulet of Protection",
+      "type": "accessory",
+      "description": "A magical amulet that provides a protective aura to the wearer.",
+      "value": 320,
+      "specifics": {
+        "defense_bonus": 10
+      },
+      "tier": 3,
+      "is_stackable": false,
+      "options": [
+        "equip_accessory",
+        "sell"
+      ],
+      "item_view_options": [
+        "equip"
+      ]
+    }
 }
 
 

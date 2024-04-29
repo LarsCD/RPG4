@@ -28,7 +28,7 @@ class Dataloader:
                 with open(file_path, "r") as file:
                     loaded_data = json.load(file)
                     data_list.append(loaded_data)
-        return data_list
+        return data_list[0]
 
 
 if __name__ == '__main__':

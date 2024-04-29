@@ -22,7 +22,7 @@ class Inventory:
 
     def get_index_list(self) -> list:
         """
-        Returns a list of all item keys (also serves as list of all item tags)
+        Returns a list of all item keys/tags
         :return: list
         """
         index_list = []
@@ -30,12 +30,15 @@ class Inventory:
             index_list.append(item_index)
         return index_list
 
+    def add_all_items(self, item_data, quantity):
+        for item_index in item_data:
+            self.add_item(item_data[item_index], quantity)
+
     def update_inventory(self):
         self.remove_empty_items()
         # self.sort_inventory()
 
     def add_item(self, item_data, quantity):
-        self.update_inventory()
         item_exists_in_inventory = item_data["tag"] in self.content_list
         if item_exists_in_inventory:
             item_can_stack = item_data["is_stackable"]
@@ -46,7 +49,7 @@ class Inventory:
             else:
                 # add, items exists and stackable
                 self.log(logging.INFO, f'adding item \'{item_data["tag"]}\' x{quantity} to {self.parent}')
-                self.content_list[item_data["tag"]] = self.content_list[item_data["tag"]].add_quantity(quantity)
+                self.content_list[item_data["tag"]].add_quantity(quantity)
         else:
             item_can_stack = item_data["is_stackable"]
             if not item_can_stack:
@@ -59,6 +62,7 @@ class Inventory:
                 self.log(logging.INFO, f'adding item \'{item_data["tag"]}\' x{quantity} to {self.parent}')
                 self.content_list[item_data["tag"]] = Item(item_data)
                 self.content_list[item_data["tag"]].set_quantity(quantity)
+        self.update_inventory()
 
     def remove_item(self, item_data, quantity):
         self.update_inventory()
