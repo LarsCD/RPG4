@@ -8,11 +8,11 @@ File: Main file to run tests
 
 ###############################################################
 """
-from level.menu.classes.View import View
 from level.menu.main_menu_test import Main_Menu
 from utilities.game_window_tools import GameWindowTools
 from utilities.dataloader import Dataloader
 from assets.classes.Inventory import Inventory
+from assets.classes.Character import Character
 
 GameWindowTools().run_setup()
 
@@ -42,20 +42,9 @@ item_data = Dataloader().load_item_data()
 print(item_data)
 
 Inventory.add_all_items(item_data, 1)
-Inventory.sort_inventory()
-
-print(Inventory.content_list)
+Inventory.view()
 
 
-inventory_index_list = Inventory.get_index_list()
-for item_index in inventory_index_list:
-    Inventory.get_contents()[item_index].item_view_menu()
-
-# print(View(Inventory))
-Inventory.sort_inventory()
-print(View(Inventory))
-
-click = input()
 
 # Main_Menu().main_loop()
 # Template_Menu().main_loop()

@@ -1,17 +1,19 @@
 import logging
 
-from level.menu.item_view_menu import Item_View_Menu
+# from level.menu.view_item import View_Item
 from utilities.GUT_2 import Color
 from utilities.logger.dev_logger import DevLogger
 from level.menu.classes.View import View
 
 
 class Item:
-    def __init__(self, item_data):
+    def __init__(self, item_data, parent):
         self.log = DevLogger(Item).log
 
         self.Tier = Tier()
         self.Clr = Color()
+
+        self.parent = parent
 
         # indexing info
         self.tag = item_data['tag']
@@ -40,32 +42,38 @@ class Item:
         self.item_view_options = item_data['item_view_options']
 
     def use_consumable(self):
-        self.log(logging.INFO, f'consuming \'{self.tag}\' ({self})')
+        self.log(logging.INFO, f'consuming \'{self.tag}\' ({self.parent})')
         if 'use_consumable' in self.options:
             self.remove_quantity(1)
             return self.specifics['health']
 
     def use_weapon(self):
-        self.log(logging.INFO, f'using weapon \'{self.tag}\' ({self})')
+        """
+        Returns attack damage and removes durability from the users weapon
+        :return: attack value
+        """
+        self.log(logging.INFO, f'using weapon \'{self.tag}\' ({self.parent})')
         if 'use_weapon' in self.options:
             self.remove_durability()
+            return None
+        else:
+            return self.specifics['damage']
 
     def remove_durability(self):
-        self.log(logging.INFO, f'removing durability \'{self.tag}\' ({self})')
+        self.log(logging.INFO, f'removing durability \'{self.tag}\' ({self.parent})')
         if 'remove_durability' in self.options:
             self.specifics['durability'] -= 1
+            if self.specifics['durability'] <= 0:
+                self.destroy()  # Removes item if item has no durability left
 
     def sell(self):
-        self.log(logging.INFO, f'selling item \'{self.tag}\' ({self})')
+        self.log(logging.INFO, f'selling item \'{self.tag}\' ({self.parent})')
         if 'sell' in self.options:
             # sell the item
             pass
 
     def view(self):
         View(self)
-
-    def item_view_menu(self):
-        Item_View_Menu(self).main_loop()
 
     def update_quantity(self):
         if not self.is_stackable:

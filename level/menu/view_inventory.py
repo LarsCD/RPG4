@@ -1,22 +1,22 @@
 from level.menu.classes.Menu import Menu
-from level.menu.classes.View import View
 from utilities.GUT_2 import Color, GUT
 from ascii_art_tester import ascii_animator
 
 
-class Inventory_Menu(Menu):
-    def __init__(self, item_class):
+class View_Inventory(Menu):
+    def __init__(self, inventory_class, menu_art):
         # imports
         self.Gut = GUT()
         self.Clr = Color()
         self.animator = ascii_animator()
-        # self.current_item = item_class
+        self.inventory_class = inventory_class
+        self.menu_art = menu_art
 
         # menu settings
         self.menu_options = {}
         self.generate_menu_options()
         self.menu_settings = {
-            'menu_art': View(self.current_item).return_item_display(),
+            'menu_art': menu_art,
             'menu_char': '',
             'menu_text': '',
             'menu_title': '',
@@ -29,27 +29,29 @@ class Inventory_Menu(Menu):
         self.in_menu = True
 
     def generate_menu_options(self):
-        highest_index = 0
-        for i, option in enumerate(self.current_item.item_view_options):
-            self.menu_options[f"{i+1}"] = str(option).replace('_', ' ').capitalize()
-            highest_index = i
+        self.menu_options[f'X'] = f'{self.Clr.hex("#ff9500")}Item index{self.Clr.rst()}'
         self.menu_options[f"e"] = f'{self.Clr.hex("#ff0000")}Exit{self.Clr.rst()}'
 
     def user_input_manager(self, user_input):
-        match user_input:
-            case '1':
-                pass
-            case '2':
-                # inventory
-                pass
-            case '3':
-                # disengage
-                pass
-            case 'e':
-                self.in_menu = False
+        try:
+            user_input = int(user_input)
+        except:
+            pass
+        if isinstance(user_input, int):
+            if not (user_input) > len(self.inventory_class.get_contents()) and not (user_input) < 0:
+                self.inventory_class.get_contents()[self.inventory_class.get_index_list()[user_input-1]].view()
+        elif user_input == 'e':
+            self.in_menu = False
+        else:
+            pass
 
-    def main_loop(self):
+    def run_loop(self):
         while self.in_menu:
             super().print_full_menu_UI(no_top_bar=True)
             user_input = self.Gut.menu_select(self.menu_settings['menu_options'], self.menu_settings['menu_title'])
             self.user_input_manager(user_input)
+
+
+
+
+

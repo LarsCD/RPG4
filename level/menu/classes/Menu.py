@@ -21,15 +21,12 @@ class Menu:
         self.menu_line_char = menu_settings['menu_line_char']
         self.menu_art_default_color = menu_settings['menu_art_default_color']
 
-    def print_menu_art(self):
-        print(self.menu_art)
-
     def print_full_menu_UI(self, no_top_bar=False):
         self.Gut.clear_screen()
         if not no_top_bar:
             self.Gut.draw_line(char=self.menu_char)
         print(self.Clr.hex(self.menu_art_default_color))
-        self.print_menu_art()
+        print(self.menu_art)
         print(self.Clr.rst())
         self.Gut.draw_line(char=self.menu_line_char)
         print('')

@@ -25,7 +25,7 @@
     "description": "This looks more like a game object then it looks like a weapon... And I dont even know what that means!!",
     "value": 20,
     "specifics": {
-      "attack": 5,
+      "damage": 5,
       "durability": 25
     },
     "tier": 2,
@@ -47,7 +47,7 @@
     "description": "A primary weapon for Orks, they use this for everything. It smells like that too...",
     "value": 430,
     "specifics": {
-      "attack": 20,
+      "damage": 20,
       "durability": 65
     },
     "tier": 3,
@@ -69,7 +69,7 @@
     "description": "You could just eat it... But what if you just throw it?",
     "value": 3,
     "specifics": {
-      "base_damage": 1,
+      "damage": 1,
       "durability": 1
     },
     "tier": 1,
@@ -111,7 +111,7 @@
       "description": "A finely crafted sword infused with arcane energy, perfect for battling magical creatures.",
       "value": 600,
       "specifics": {
-        "attack": 35,
+        "damage": 35,
         "durability": 55
       },
       "tier": 4,
@@ -133,7 +133,7 @@
       "description": "Cyphers Mace was made for Lord Cypher himself, it served him well until he died... Tragic.",
       "value": 1100,
       "specifics": {
-        "attack": 45,
+        "damage": 45,
         "durability": 85
       },
       "tier": 5,
@@ -173,7 +173,7 @@
   "shield_of_resilience": {
       "tag": "shield_of_resilience",
       "name": "Shield of Resilience",
-      "type": "armor",
+      "type": "shield",
       "description": "A sturdy shield that absorbs a significant amount of damage.",
       "value": 500,
       "specifics": {
@@ -259,7 +259,7 @@
       "description": "A small dagger designed for stealthy attacks and quick strikes.",
       "value": 450,
       "specifics": {
-        "attack": 25,
+        "damage": 25,
         "durability": 40
       },
       "tier": 3,

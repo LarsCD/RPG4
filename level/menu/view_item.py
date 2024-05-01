@@ -1,22 +1,23 @@
 from level.menu.classes.Menu import Menu
-from level.menu.classes.View import View
+# from level.menu.classes.View import View
 from utilities.GUT_2 import Color, GUT
 from ascii_art_tester import ascii_animator
 
 
-class Item_View_Menu(Menu):
-    def __init__(self, item_class):
+class View_Item(Menu):
+    def __init__(self, item_class, menu_art):
         # imports
         self.Gut = GUT()
         self.Clr = Color()
         self.animator = ascii_animator()
         self.current_item = item_class
+        self.menu_art = menu_art
 
         # menu settings
         self.menu_options = {}
         self.generate_menu_options()
         self.menu_settings = {
-            'menu_art': View(self.current_item).return_item_display(),
+            'menu_art': self.menu_art,
             'menu_char': '',
             'menu_text': '',
             'menu_title': '',
@@ -48,7 +49,7 @@ class Item_View_Menu(Menu):
             case 'e':
                 self.in_menu = False
 
-    def main_loop(self):
+    def run_loop(self):
         while self.in_menu:
             super().print_full_menu_UI(no_top_bar=True)
             user_input = self.Gut.menu_select(self.menu_settings['menu_options'], self.menu_settings['menu_title'])
