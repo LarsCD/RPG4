@@ -1,0 +1,34 @@
+{
+    "character": {
+        "name": "#player_name",
+        "tag": "player"
+    },
+    "class_info": {
+        "class_tag": "knight",
+        "class_name": "Knight"
+    },
+    "level": {
+        "level": 1,
+        "level_max": 100
+    },
+    "stats": {
+        "hp_max": 100,
+        "xp_max": 50,
+        "ep_max": 30,
+        "mp_max": 20
+    },
+    "attributes": {
+        "strength": 7,
+        "speed": 5,
+        "agility": 6,
+        "intelligence": 3,
+        "stealth": 2,
+        "sorcery": 1
+    },
+    "multiplier": {
+        "hp": 1.020,
+        "xp": 1.020,
+        "ep": 1.070,
+        "mp": 1.010
+    }
+}

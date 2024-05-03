@@ -1,5 +1,6 @@
 from level.menu.view_inventory import View_Inventory
 from level.menu.view_item import View_Item
+from logic.Game_rules import Game_rules
 
 from utilities.GUT_2 import GUT, Color
 from data.config.config_settings import GAME_SETTINGS
@@ -46,8 +47,22 @@ class View:
         
 """
         for specific in item.specifics:
+            plus_sign = ''
+            value = item.specifics[specific]
+            # check for plus sigh with attributes
+            if isinstance(value, int):
+                if str(specific).lower() in Game_rules().attribute_index:
+                    if value > 0:
+                        plus_sign = '+'
+            if isinstance(value, list):
+                value = ""
+                for i, specific_list_index in enumerate(item.specifics[specific]):
+                    if i > 0:
+                        value += ', '
+                    value += f"{str(specific_list_index).replace('_', ' ').title()}"
+
             return_string += str(
-                f"    |    {g}{item.specifics[specific]}{rst} {str(specific).replace('_', ' ').capitalize()}")
+                f"    |    {g}{plus_sign}{value}{rst} {str(specific).replace('_', ' ').title()}")
 
         return_string += f"""\n
     Worth {y}{item.value}{rst} Gold"""

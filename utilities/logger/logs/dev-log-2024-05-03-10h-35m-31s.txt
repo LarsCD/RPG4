@@ -1,0 +1,20 @@
+[INFO][2024-05-03 10:35:31,233]: Dataloader > loading items data
+[INFO][2024-05-03 10:35:31,233]: Dataloader > loading 'placeholder_items.json'
+[INFO][2024-05-03 10:35:31,233]: Dataloader > loading player_class data
+[INFO][2024-05-03 10:35:31,234]: Dataloader > loading 'player_knight_class.json'
+[INFO][2024-05-03 10:35:31,234]: Inventory > adding item 'placeholder_apple' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,235]: Inventory > adding item 'placeholder_weapon' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,237]: Inventory > adding item 'orkian_battle_axe' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,238]: Inventory > adding item 'throwable_apple' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,238]: Inventory > adding item 'elixir_of_vitality' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,239]: Inventory > adding item 'arcane_long_sword' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,239]: Inventory > adding item 'cyphers_mace' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,240]: Inventory > adding item 'leather_armor' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,240]: Inventory > adding item 'shield_of_resilience' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,240]: Inventory > adding item 'scroll_of_fireball' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,241]: Inventory > adding item 'ring_of_agility' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,241]: Inventory > adding item 'greater_health_potion' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,242]: Inventory > adding item 'dagger_of_stealth' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,242]: Inventory > adding item 'helmet_of_wisdom' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[INFO][2024-05-03 10:35:31,243]: Inventory > adding item 'amulet_of_protection' x1 (<assets.player.Player.Player object at 0x000001FFB68FB460>:<assets.classes.Inventory.Inventory object at 0x000001FFB68FB760>)
+[WARNING][2024-05-03 10:35:31,243]: Character > can not equip 'arcane_long_sword' to weapon slot > weapon_slot_index: -1 (player:<assets.player.Player.Player object at 0x000001FFB68FB460>)

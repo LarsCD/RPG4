@@ -57,7 +57,7 @@ class Item:
             self.remove_durability()
             return None
         else:
-            return self.specifics['damage']
+            return self.specifics['damage'], self.specifics
 
     def remove_durability(self):
         self.log(logging.INFO, f'removing durability \'{self.tag}\' ({self.parent})')

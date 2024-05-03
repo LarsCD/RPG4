@@ -1,8 +1,14 @@
-from assets.classes.Inventory import Inventory
+from assets.classes.Character import Character
 
 
-class Player(Inventory):
-    def __init__(self):
-        super().__init__(self)
+class Player(Character):
+    def __init__(self, data):
+        Character.__init__(self, data, self)
+        # CLASS
+        self.class_data = {
+            'class_tag': data['class_info']['class_tag'],
+            'class_name': data['class_info']['class_name']
+        }
+
 
 
