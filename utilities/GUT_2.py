@@ -15,6 +15,28 @@ class GUT:
 
         self.standard_bar_text = "[Type \'/\' for commands, \'/h\' or \'/help\' for list of commands]"
 
+    @staticmethod
+    def stat_bar(text, current_value, max_value, bar_length, char, text_color_hex, bar_color_hex):
+        clr = Color()
+        rst = clr.rst()
+
+        # Calculate the progress as a fraction of the max_value
+        progress = current_value / max_value if max_value > 0 else 0
+
+        # Determine the length of the filled portion and the remaining portion
+        filled_length = int(progress * bar_length)
+        remaining_length = bar_length - filled_length
+
+        # Construct the string
+        string = (
+            f'{clr.hex(text_color_hex)}{text}{rst} '  # Text part
+            f'({clr.hex(bar_color_hex)}{int(current_value)}{rst}/{clr.hex(bar_color_hex)}{int(max_value)}{rst}) '  # Current/Max values
+            f'[{clr.hex(bar_color_hex)}{str(char) * filled_length}{rst}'  # Filled portion of the bar
+            f'{str("." * remaining_length)}]'  # Unfilled portion
+        )
+
+        return string
+
     def clear_screen(self):
         system('cls' if self.gut_settings.get('os', 'windows') == 'windows' else 'clear')
 

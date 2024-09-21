@@ -1,4 +1,5 @@
 from assets.classes.Character import Character
+from level.menu.classes.View import View
 
 
 class Player(Character):
@@ -9,6 +10,10 @@ class Player(Character):
             'class_tag': data['class_info']['class_tag'],
             'class_name': data['class_info']['class_name']
         }
+        self.id = 3
+
+    def view(self):
+        View(self)
 
 
 

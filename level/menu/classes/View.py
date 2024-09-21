@@ -1,3 +1,4 @@
+from level.menu.classes.view_player_stats import View_Player_Stats
 from level.menu.view_inventory import View_Inventory
 from level.menu.view_item import View_Item
 from logic.Game_rules import Game_rules
@@ -19,6 +20,8 @@ class View:
             View_Item(self.object_class, self.return_item_display()).run_loop()
         if self.object_class.id == 2:
             View_Inventory(self.object_class, self.return_inventory_display()).run_loop()
+        if self.object_class.id == 3:
+            View_Player_Stats(self.object_class, self.return_player_stats_display()).run_loop()
 
     @staticmethod
     def format_description(description):
@@ -94,7 +97,7 @@ class View:
 
     {it}Inventory{rst} | [{o}S{rst}] Sort: {it}{o}Tier{rst}
 
-    [XX]   Item{" "*int(format_buffer_size['name']-4)}  |  Tier{" "*int(format_buffer_size['tier']-4)}  |  Type{" "*int(format_buffer_size['type']-4)}  |  Amount{" "*int(format_buffer_size['amount']-6)}   |  Value{" "*int(format_buffer_size['value']-5)}  |"""
+    [XX]   Item{" " * int(format_buffer_size['name'] - 4)}  |  Tier{" " * int(format_buffer_size['tier'] - 4)}  |  Type{" " * int(format_buffer_size['type'] - 4)}  |  Amount{" " * int(format_buffer_size['amount'] - 6)}   |  Value{" " * int(format_buffer_size['value'] - 5)}  |"""
 
         current_item_type = None
         for i, item_name in enumerate(inventory.get_contents()):
@@ -111,7 +114,31 @@ class View:
                 return_string += f"\n    -- {it}{str(item_class.type).replace('_', ' ').title()}{rst} --"
                 current_item_type = item_class.type
 
-            return_string += f"\n    [{o}{i+1:02}{rst}]   {self.Clr.hex(item_class.tier_hex_color)}{item_class.name}{rst}{name_str_buffer}  |  {self.Clr.hex(item_class.tier_hex_color)}{str(item_class.tier_name).title()}{rst}{tier_str_buffer}  |  {it}{str(item_class.type).replace('_', ' ').title()}{rst}{type_str_buffer}  |  {item_class.quantity}x{amount_str_buffer}  |  {y}{item_class.value}{rst} g{value_str_buffer}|"
+            return_string += f"\n    [{o}{i + 1:02}{rst}]   {self.Clr.hex(item_class.tier_hex_color)}{item_class.name}{rst}{name_str_buffer}  |  {self.Clr.hex(item_class.tier_hex_color)}{str(item_class.tier_name).title()}{rst}{tier_str_buffer}  |  {it}{str(item_class.type).replace('_', ' ').title()}{rst}{type_str_buffer}  |  {item_class.quantity}x{amount_str_buffer}  |  {y}{item_class.value}{rst} g{value_str_buffer}|"
         return return_string
 
-
+    def return_player_stats_display(self):
+        return_string = """"""
+        # colors
+        self.Gut = GUT()
+        r = self.Clr.hex('#ff0000')
+        b = self.Clr.hex('#00aaff')
+        y = self.Clr.hex('#ffd900')
+        g = self.Clr.hex('#03fc13')
+        o = self.Clr.hex('#ff9500')
+        it = self.Clr.italicize()
+        rst = self.Clr.rst()
+        player = self.object_class
+        char = '█'
+        colored_line = f"{rst}{str(char) * int(self.game_settings['game_resolution'][1])}{rst}"
+        return_string += f"""{colored_line}
+        
+    {it}Player{rst} 
+    
+    {self.Gut.stat_bar("Health", player.stats['hp']['current']-10, player.stats['hp']['max'], 30, "/", '#ffffff', '#ff0000')}
+    {self.Gut.stat_bar("XP", player.stats['xp']['current']+20, player.stats['xp']['max'], 20, "|", '#ffffff', '#ff0000')}
+    
+    {self.Gut.stat_bar("Energy", player.stats['ep']['current'], player.stats['ep']['max'], 30, "/", '#ffffff', '#ff0000')}
+    {self.Gut.stat_bar("Mana", player.stats['mp']['current'], player.stats['mp']['max'], 30, "/", '#ffffff', '#ff0000')}
+"""
+        return return_string

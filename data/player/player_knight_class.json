@@ -19,6 +19,7 @@
     },
     "attributes": {
         "strength": 7,
+        "defence": 6,
         "speed": 5,
         "agility": 6,
         "intelligence": 3,
@@ -27,7 +28,7 @@
     },
     "multiplier": {
         "hp": 1.020,
-        "xp": 1.020,
+        "xp": 1.200,
         "ep": 1.070,
         "mp": 1.010
     }

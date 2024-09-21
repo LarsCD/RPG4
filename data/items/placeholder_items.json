@@ -183,6 +183,7 @@
       "value": 500,
       "specifics": {
         "defense": 25,
+        "strength": 5,
         "durability": 60
       },
       "tier": 3,
@@ -225,7 +226,8 @@
       "description": "A silver ring that grants the wearer increased agility and speed.",
       "value": 300,
       "specifics": {
-        "agility": 2
+        "agility": 2,
+        "speed": 2
       },
       "tier": 3,
       "is_stackable": false,

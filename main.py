@@ -49,14 +49,32 @@ player_class_data = DATALOADER.load_player_class_data()
 # print(player_class_data)
 
 PLAYER = Player(player_class_data)
+
 PLAYER.Inventory.add_all_items(item_data, 1)
 # PLAYER.Inventory.view()
+
 ITEM_1 = PLAYER.Inventory.content_list[PLAYER.Inventory.get_index_list()[13]]
-PLAYER.equip_weapon(ITEM_1, -1)
+
+# PLAYER.equip_weapon(ITEM_1, -1)
+# PLAYER.equip_weapon(ITEM_1, 0)
+PLAYER.un_equip_weapon(ITEM_1, 1)
+PLAYER.attack_weapon(0)
+# PLAYER.attack_weapon(1)
+# PLAYER.attack_weapon(2)
+
+PLAYER.take_damage(20)
+PLAYER.heal(10)
+PLAYER.heal_full()
+# PLAYER.give_xp(80)
+PLAYER.set_level(3)
+PLAYER.level_up()
+print("level: " + str(PLAYER.level['current']))
+
 print(PLAYER.loadout)
-# Inventory.add_all_items(item_data, 1)
-# Inventory.view()
+PLAYER.view()
+PLAYER.Inventory.add_all_items(item_data, 1)
+PLAYER.Inventory.view()
 
 
-# Main_Menu().main_loop()
+Main_Menu().main_loop()
 # Template_Menu().main_loop()

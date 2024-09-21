@@ -8,13 +8,15 @@ class Game_rules:
         self.log = DevLogger(Game_rules).log
         self.status_multipliers = {
             'poisoned': {
-                'strength': 0.7,
-                'speed': 0.8,
-                'agility': 0.8
+                'strength': 0.75,
+                'defense': 0.8,
+                'speed': 0.9,
+                'agility': 0.6,
             }
         }
         self.attribute_index = [
             'strength',
+            'defense',
             'speed',
             'agility',
             'intelligence',

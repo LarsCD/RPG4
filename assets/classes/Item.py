@@ -49,20 +49,21 @@ class Item:
 
     def use_weapon(self):
         """
-        Returns attack damage and removes durability from the users weapon
+        Returns attack damage and removes durability from the user's weapon
         :return: attack value
         """
-        self.log(logging.INFO, f'using weapon \'{self.tag}\' ({self.parent})')
         if 'use_weapon' in self.options:
+            self.log(logging.INFO, f'using weapon \'{self.tag}\' ({self.parent.character["tag"]}:{self.parent})')
             self.remove_durability()
-            return None
+            return self.specifics['damage'], self.specifics['damage_type']
         else:
-            return self.specifics['damage'], self.specifics
+            self.log(logging.WARNING, f'cannot use use_weapon with this item\'{self.tag}\' ({self.parent.character["tag"]}:{self.parent})')
+            return None, None
 
     def remove_durability(self):
-        self.log(logging.INFO, f'removing durability \'{self.tag}\' ({self.parent})')
         if 'remove_durability' in self.options:
             self.specifics['durability'] -= 1
+            self.log(logging.INFO, f'removing durability \'{self.tag}\' ({self.specifics["durability"]} left) ({self.parent.character["tag"]}:{self.parent})')
             if self.specifics['durability'] <= 0:
                 self.destroy()  # Removes item if item has no durability left
 
@@ -100,6 +101,7 @@ class Item:
     def destroy(self):
         self.log(logging.INFO, f'DESTROYING \'{self.tag}\' ({self})')
         del self
+
 
 
 class Tier:
