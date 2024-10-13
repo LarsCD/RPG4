@@ -16,12 +16,13 @@ AUTH_SETTINGS = {
 }
 GAME_DEFAULTS = {
     'game_name': "RPG 4",
-    'game_version': 'v0.0.5.1'
+    'game_version': 'v0.0.6'
 }
 GAME_SETTINGS = {
-    'game_resolution': [38, 118]
+    'game_resolution': [38, 115]
 }
 DATALOADER_SETTINGS = {
     'item_dir_path': r'/data/items/',
-    'player_class_dir_path': r'/data/player/'
+    'player_class_dir_path': r'/data/player/',
+    'enemy_class_dir_path': r'/data/characters/enemies/',
 }

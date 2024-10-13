@@ -68,12 +68,13 @@
     "tag": "throwable_apple",
     "name": "Throwable Apple",
     "type": "weapon",
-    "description": "You could just eat it... But what if you just throw it?",
+    "description": "You could eat it... But what if you just throw it?",
     "value": 3,
     "specifics": {
       "damage": 1,
       "damage_type": ["ranged"],
-      "durability": 1
+      "durability": 1,
+      "current_durability": 1
     },
     "tier": 1,
     "is_stackable": false,
@@ -323,13 +324,111 @@
       "item_view_options": [
         "equip"
       ]
-    }
+    },
+  "elven_bow": {
+    "tag": "elven_bow",
+    "name": "Elven Bow",
+    "type": "weapon",
+    "description": "A finely crafted bow made from the wood of ancient trees, it offers excellent precision and power.",
+    "value": 700,
+    "specifics": {
+      "damage": 40,
+      "damage_type": [
+        "physical"
+      ],
+      "durability": 65
+    },
+    "tier": 4,
+    "is_stackable": false,
+    "options": [
+      "use_weapon",
+      "equip_weapon",
+      "remove_durability",
+      "sell"
+    ],
+    "item_view_options": [
+      "equip"
+    ]
+  },
+  "health_potion": {
+    "tag": "health_potion",
+    "name": "Health Potion",
+    "type": "consumable",
+    "description": "A potion that restores a moderate amount of health.",
+    "value": 100,
+    "specifics": {
+      "healing": 5
+    },
+    "tier": 1,
+    "is_stackable": true,
+    "options": [
+      "use_consumable",
+      "inspect",
+      "sell"
+    ],
+    "item_view_options": [
+      "drink"
+    ]
+  },
+  "boots_of_speed": {
+    "tag": "boots_of_speed",
+    "name": "Boots of Speed",
+    "type": "armor",
+    "description": "A pair of enchanted boots that significantly increase the wearer's speed.",
+    "value": 600,
+    "specifics": {
+      "speed": 7,
+      "durability": 50
+    },
+    "tier": 4,
+    "is_stackable": false,
+    "options": [
+      "equip_armor",
+      "repair_armor",
+      "remove_durability",
+      "sell"
+    ],
+    "item_view_options": [
+      "equip"
+    ]
+  },
+  "mana_potion": {
+    "tag": "mana_potion",
+    "name": "Mana Potion",
+    "type": "consumable",
+    "description": "A potion that restores a moderate amount of mana.",
+    "value": 120,
+    "specifics": {
+      "mana_restoration": 20
+    },
+    "tier": 2,
+    "is_stackable": true,
+    "options": [
+      "use_consumable",
+      "inspect",
+      "sell"
+    ],
+    "item_view_options": [
+      "drink"
+    ]
+  },
+  "cloak_of_invisibility": {
+    "tag": "cloak_of_invisibility",
+    "name": "Cloak of Invisibility",
+    "type": "accessory",
+    "description": "A magical cloak that renders the wearer invisible for a short period.",
+    "value": 1500,
+    "specifics": {
+      "duration": 30
+    },
+    "tier": 6,
+    "is_stackable": false,
+    "options": [
+      "use_accessory",
+      "sell"
+    ],
+    "item_view_options": [
+      "equip"
+    ]
+  }
 }
-
-
-
-
-
-
-
-

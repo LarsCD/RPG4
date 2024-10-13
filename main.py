@@ -5,12 +5,12 @@ By: LarsCD(2002)
 
 File: Main file to run tests
 
-
 ###############################################################
 """
 import time
 
 from level.menu.main_menu_test import Main_Menu
+from level.menu.template_menu import Template_Menu
 from utilities.game_window_tools import GameWindowTools
 from utilities.dataloader import Dataloader
 from assets.classes.Inventory import Inventory
@@ -23,6 +23,7 @@ GameWindowTools().run_setup()
 DATALOADER = Dataloader()
 item_data = DATALOADER.load_item_data()
 player_class_data = DATALOADER.load_player_class_data()
+enemy_class_data = DATALOADER.load_enemy_class_data()
 
 """------------------------------------ Zombie code here :3 ------------------------------------"""
 # Inventory.add_item(item_data['placeholder_apple'], 5)
@@ -44,7 +45,6 @@ player_class_data = DATALOADER.load_player_class_data()
 # Inventory.get_contents()['orkian_battle_axe'].use_weapon()
 """------------------------------------ Zombie code here :3 ------------------------------------"""
 
-
 # print(item_data)
 # print(player_class_data)
 
@@ -53,14 +53,19 @@ PLAYER = Player(player_class_data)
 PLAYER.Inventory.add_all_items(item_data, 1)
 # PLAYER.Inventory.view()
 
-ITEM_1 = PLAYER.Inventory.content_list[PLAYER.Inventory.get_index_list()[13]]
+ITEM_1 = PLAYER.Inventory.content_list[PLAYER.Inventory.get_index_list()[13]]   # Indexing
 
-# PLAYER.equip_weapon(ITEM_1, -1)
-# PLAYER.equip_weapon(ITEM_1, 0)
+PLAYER.equip_weapon(ITEM_1, -1)
+PLAYER.equip_weapon(ITEM_1, 1)
 PLAYER.un_equip_weapon(ITEM_1, 1)
+PLAYER.equip_weapon(ITEM_1, 0)
+
+# TODO: fix remove_item()
+# PLAYER.Inventory.remove_item(ITEM_1, 1)
+
 PLAYER.attack_weapon(0)
-# PLAYER.attack_weapon(1)
-# PLAYER.attack_weapon(2)
+PLAYER.attack_weapon(1)
+PLAYER.attack_weapon(2)
 
 PLAYER.take_damage(20)
 PLAYER.heal(10)
@@ -71,10 +76,9 @@ PLAYER.level_up()
 print("level: " + str(PLAYER.level['current']))
 
 print(PLAYER.loadout)
-PLAYER.view()
-PLAYER.Inventory.add_all_items(item_data, 1)
-PLAYER.Inventory.view()
-
+PLAYER.view_player_menu()
+# PLAYER.Inventory.add_all_items(item_data, 1)
+# PLAYER.Inventory.view_player_menu()
 
 Main_Menu().main_loop()
 # Template_Menu().main_loop()

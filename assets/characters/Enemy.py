@@ -2,7 +2,7 @@ from assets.classes.Character import Character
 from level.menu.classes.View import View
 
 
-class Player(Character):
+class Enemy(Character):
     def __init__(self, data):
         Character.__init__(self, data, self)
         # CLASS
@@ -10,11 +10,7 @@ class Player(Character):
             'class_tag': data['class_info']['class_tag'],
             'class_name': data['class_info']['class_name']
         }
-        self.id = 3  # used for View.py functions
+        self.id = 5  # used for View.py functions
 
-    def view_player_menu(self):
+    def view_enemy_stats(self):
         View(self)
-
-    def view_player_stats(self):
-        View(self, id=4)
-

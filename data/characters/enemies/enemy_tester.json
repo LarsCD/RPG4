@@ -1,0 +1,35 @@
+{
+    "character": {
+        "name": "#enemy_tester",
+        "tag": "enemy"
+    },
+    "class_info": {
+        "class_tag": "ork",
+        "class_name": "Ork"
+    },
+    "level": {
+        "level": 1,
+        "level_max": 100
+    },
+    "stats": {
+        "hp_max": 40,
+        "xp_max": 20,
+        "ep_max": 20,
+        "mp_max": 0
+    },
+    "attributes": {
+        "strength": 5,
+        "defence": 4,
+        "speed": 3,
+        "agility": 4,
+        "intelligence": 1,
+        "stealth": 1,
+        "sorcery": 0
+    },
+    "multiplier": {
+        "hp": 1.005,
+        "xp": 1.050,
+        "ep": 1.020,
+        "mp": 1.005
+    }
+}

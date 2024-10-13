@@ -1,0 +1,35 @@
+{
+    "character": {
+        "name": "DEBUG_ENEMY_TESTER",
+        "tag": "tester_enemy_2"
+    },
+    "class_info": {
+        "class_tag": "tester",
+        "class_name": "DEBUG_TESTER"
+    },
+    "level": {
+        "level": 1,
+        "level_max": 100
+    },
+    "stats": {
+        "hp_max": 40,
+        "xp_max": 20,
+        "ep_max": 20,
+        "mp_max": 0
+    },
+    "attributes": {
+        "strength": 1,
+        "defence": 1,
+        "speed": 1,
+        "agility": 1,
+        "intelligence": 1,
+        "stealth": 1,
+        "sorcery": 1
+    },
+    "multiplier": {
+        "hp": 1.005,
+        "xp": 1.050,
+        "ep": 1.020,
+        "mp": 1.005
+    }
+}

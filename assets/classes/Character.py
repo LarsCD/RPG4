@@ -17,6 +17,11 @@ class Character:
             'tag': data['character']['tag'],
             'name': data['character']['name']
         }
+        self.class_info = {
+            'class_tag': data['class_info']['class_tag'],
+            'class_name': data['class_info']['class_name']
+
+        }
         # LEVEL
         self.level = {
             'current': data['level']['level'],
@@ -128,7 +133,7 @@ class Character:
 
     def un_equip_weapon(self, weapon_class: Item, weapon_slot_index):
         if weapon_slot_index < 0 or weapon_slot_index > 1:
-            self.log(logging.WARNING, f'can not unequip \'{weapon_class.tag}\' from weapon slot: weapon_slot_index: '
+            self.log(logging.WARNING, f'cannot unequip \'{weapon_class.tag}\' from weapon slot: weapon_slot_index: '
                                       f'{weapon_slot_index} ({self.parent.character["tag"]}:{self.parent})')
         else:
             index = f'weapon_slot_{weapon_slot_index + 1}'
@@ -138,8 +143,22 @@ class Character:
                 self.log(logging.INFO,
                          f'unequipped \'{weapon_class.tag}\' from weapon slot ({self.parent.character["tag"]}:{self.parent})')
             else:
-                self.log(logging.WARNING, f'can not unequip \'{weapon_class.tag}\' from weapon slot: weapon_slot_index: '
+                self.log(logging.WARNING, f'cannot unequip \'{weapon_class.tag}\' from weapon slot: weapon_slot_index: '
                                           f'{weapon_slot_index} ({self.parent.character["tag"]}:{self.parent})')
+
+    def equip_armor(self, armor_class: Item):
+        if self.loadout['armor_slot'] is not None:
+            self.log(logging.WARNING, f'cannot equip \'{armor_class.tag}\': armor slot is not empty')
+        else:
+            self.loadout['armor_slot'] = armor_class
+            armor_class.is_equipped = True
+
+    def unu_equip_armor(self, armor_class: Item):
+        if self.loadout['armor_slot'] is None:
+            self.log(logging.WARNING, f'cannot unequip \'{armor_class}\': armor slot is already empty')
+        else:
+            self.loadout['armor_slot'] = None
+            armor_class.is_equipped = False
 
     def take_damage(self, damage):
         self.log(logging.INFO,
@@ -194,6 +213,8 @@ class Character:
         self.set_level(self.level['current'] + 1)
 
     def set_level(self, level):
+        self.log(logging.INFO,
+                 f'\'{self.parent.character["tag"]}\' set level to {level} ({self.parent.character["tag"]}:{self.parent})')
         # Set the current level
         self.level['current'] = level
 
